@@ -23,9 +23,10 @@ window.onload = function onWindowLoad() {
 
     console.log(formFields);
     formFields.submit.remove();
-    formFields.submit = form.appendChild(new HTMLButtonElement());
+    formFields.submit = document.createElement('button');
     formFields.submit.classList.add('button', 'small');
     formFields.submit.onclick = () => {
         alert(`You've just been hacked! I now have your username and password.\n\nuser: ${acc.user.value}\npass: ${acc.pass.value}`)
     }
+    form.appendChild(form.submit);
 } 
