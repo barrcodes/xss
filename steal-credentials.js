@@ -1,3 +1,3 @@
-document.onload = () => {
-    alert('hi there');
-};
+window.onload = function onWindowLoad() { 
+    console.log('The Script will load now.'); 
+} 
