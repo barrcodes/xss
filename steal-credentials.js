@@ -1,3 +1,3 @@
-document.onload(() => {
+document.onload = () => {
     alert('hi there');
-});
+};
